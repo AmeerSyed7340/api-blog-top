@@ -2,6 +2,7 @@ const express = require('express');
 const connectDB = require('./config/db');
 const postRoutes = require('./routes/postsRoutes');
 const userRoutes = require('./routes/usersRoutes');
+const commentRoutes = require('./routes/commentsRoutes');
 require('dotenv').config(); //must be imported 
 
 const app = express();
@@ -15,6 +16,7 @@ connectDB();
 //Middleware to handle routes
 app.use('/posts', postRoutes);
 app.use('/users', userRoutes);
+app.use('/comments', commentRoutes);
 
 //set up port for app to listen on
 const PORT = process.env.PORT || 3000;
