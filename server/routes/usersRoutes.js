@@ -8,6 +8,9 @@ router.get('/', usersController.getAllUsers);
 //Route to create a new use
 router.post('/', usersController.createUser);
 
+//POST to login 
+router.post('/login', usersController.loginUser);
+
 //Route to create a new comment
 router.post('/:id/comment', usersController.createComment);
 
