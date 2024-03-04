@@ -10,6 +10,10 @@ exports.getAllComments = asyncHandler(async(req, res, next) => {
 //create comment
 exports.createComment = asyncHandler(async(req, res, next) => {
     const postID = req.params.postID;
-    console.log(`This is the post id: ${postID}`);
-    res.json({"postId": postID});
+    const userID = req.user.userId;
+    console.log(`This is the post id: ${postID} and userID: ${userID}`);
+    res.json({
+        "postId": postID, 
+        "userId": userID
+    });
 })

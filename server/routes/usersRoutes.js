@@ -12,7 +12,7 @@ router.post('/', usersController.createUser);
 router.post('/login', usersController.loginUser);
 
 //Route to create a new comment
-router.post('/:id/comment', usersController.createComment);
+//router.post('/:id/comment', usersController.createComment);
 
 
 

@@ -7,9 +7,10 @@ const verifyToken = function(req, res, next){
         req.token = bearerToken;
         jwt.verify(req.token, process.env.JWT_SECRET, (err, authData) =>{
             if(err){
-                res.sendStatus(403);
+                res.sendStatus(403); //403 is forbidden
             }
             else{
+                req.user = authData
                 next();
             }
         })       

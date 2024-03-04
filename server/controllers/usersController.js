@@ -84,12 +84,12 @@ exports.loginUser = asyncHandler(async(req, res, next) => {
     res.json({token});
 })
 
-//POST '/:id/comment'
-exports.createComment = asyncHandler(async(req, res, next) => {
-    const comment = new Comment(req.body);
-    const newComment = await comment.save();
+// //POST '/:id/comment'
+// exports.createComment = asyncHandler(async(req, res, next) => {
+//     const comment = new Comment(req.body);
+//     const newComment = await comment.save();
 
-    //chain the responses
-    res.status(201).json(newComment);
-})
+//     //chain the responses
+//     res.status(201).json(newComment);
+// })
 
