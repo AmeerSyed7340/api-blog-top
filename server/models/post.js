@@ -16,11 +16,11 @@ const postSchema = new mongoose.Schema(
             required: [true, 'Post content is required'],
         },
         //add user and comments (both should have their own models)
-        // author:{
-        //     type: mongoose.Schema.Types.ObjectId,
-        //     ref: 'User',
-        //     required: true,
-        // },
+        author:{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User',
+            required: true,
+        },
         comments:[{
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Comment',
