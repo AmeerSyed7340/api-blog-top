@@ -9,8 +9,18 @@ exports.getAllPosts = asyncHandler(async(req, res, next) => {
 
 //POST 'posts/'
 exports.createPost = asyncHandler(async(req, res, next) => {
-    const post = new Post(req.body);
-    const newPost = await post.save();
-    //chain the responses
-    res.status(201).json(newPost);
+    const { title, content } = req.body;
+    const author = req.user.userId; // Ensure this matches how you're setting it in verifyToken
+
+    try {
+        const newPost = await Post.create({
+            title,
+            content,
+            author, // This now correctly references req.user.userID
+        });
+
+        res.status(201).json(newPost);
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
 });
